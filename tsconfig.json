@@ -1,17 +1,17 @@
 {
     "compilerOptions": {
-        "target": "esnext",
-        "module": "esnext",
-        "moduleResolution": "node",
+        "baseUrl": ".",
+        "module": "ESNext",
+        "target": "ESNext",
+        "lib": [ "ESNext", "DOM"],
         "strict": true,
+        "esModuleInterop": true,
+        "incremental": false,
+        "skipLibCheck": true,
+        "moduleResolution": "node",
         "jsx": "preserve",
         "sourceMap": true,
         "resolveJsonModule": true,
-        "esModuleInterop": true,
-        "lib": [
-            "esnext",
-            "dom"
-        ],
         "types": [
             "vite/client",
             "vite-plugin-pwa/client"

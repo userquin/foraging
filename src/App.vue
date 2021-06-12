@@ -32,10 +32,12 @@ import { usePlanList } from './composition/usePlanList';
 import { useSwiper } from './composition/useSwiper';
 import type { Plan } from './types';
 import { promiseTimeout } from "@vueuse/core";
-import { registerSW } from 'virtual:pwa-register';
-onMounted(() => {
-    registerSW();
-});
+if (import.meta.env.MODE === 'production' && typeof window !== 'undefined') {
+  onMounted(async() => {
+    const { registerSW } = await import('virtual:pwa-register');
+    registerSW({ immediate: true });
+  });
+}
 
 const mySwiper = ref();
 let swiper: Swiper;
